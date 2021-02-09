@@ -14,8 +14,6 @@ function getOdds(numbers) {
   return Odds;   
 }
 
-//console.log(getOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]));
-
 
 /**
  * getEvens(numbers):
@@ -32,7 +30,7 @@ function getEvens(numbers) {
   Evens.push(numbers.filter(num => num % 2 === 0));
   return Evens; 
 }
-//console.log(getEvens([11, 35, 52, 14, 56, 601, 777, 888, 999]));
+
 
 
 /**
@@ -45,12 +43,13 @@ function getEvens(numbers) {
  * countOccurences(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52]) -> 3
  */
 function countOccurences(x, numbers) {
-  let occurence = [];
-  occurence.push(numbers.filter(cv => cv = x));
-  return occurence.length
+  let count = 0;
+  numbers.forEach(function(cv) {
+    if (cv === x) count ++;
+  })
+    return count;
 }
-//console.log(countOccurences(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13]));
-//console.log(countOccurences(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52]));
+
 /**
  * makeThemDoctors(students):
  * - receives array `students`
@@ -61,11 +60,8 @@ function countOccurences(x, numbers) {
  */
 
 function makeThemDoctors(students) {
-  
-students.map(cv) {
-  cv = "Dr." + "" + students;
+  return students.map(function(cv) {
+    return `Dr. ${cv}`;
+  });
 }
-}
-console.log(makeThemDoctors(["Ali", "Aseel", "Richard"]));
-
 module.exports = { getOdds, getEvens, countOccurences, makeThemDoctors };
